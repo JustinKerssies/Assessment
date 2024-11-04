@@ -152,8 +152,10 @@ class MyTextProcessor(TextProcessor):
     def find_email_addresses(self):
         for lines in self.file.readlines():
             if '@' in lines:
-                if search(r'^[a-zA-Z._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', lines.strip()):
-                    click.echo(lines)
+                words = lines.strip().split(' ')
+                for word in words:
+                    if search(r'^[a-zA-Z]+\.?[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z.]*$', word):
+                        click.echo(word)
 
     def find_cypher(self, shift: int):
         shift = click.prompt('Please enter the expected shift for the ceaser cypher', type=int)
@@ -196,5 +198,4 @@ class MyTextProcessor(TextProcessor):
 
 
 if __name__ == '__main__':
-    cli()
-    
+    cli() 
