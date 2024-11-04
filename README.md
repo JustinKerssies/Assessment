@@ -46,7 +46,7 @@ The way to currently use the program is to input:
 * Be more diligent with reading documentation
   > One of the Issues I ran into with Click is that I fundamentally misunderstood how the package worked, leading to behaviour that took way too long to fix. Instead I should have spend more time focussing on diligently reading through the base parts of the documentation
 * Read the Assignment more carefully
-  > I only recently saw the part in the DoD about frequent changes and logs in Git. This should not happen in a work environment.
+  > I only recently saw the part in the DoD about frequent changes and logs in Git. Forgetting something like his should not happen in a work environment.
 
 
  
