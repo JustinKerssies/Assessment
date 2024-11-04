@@ -20,6 +20,9 @@ from baseclass import TextProcessor
 
 
 def cli(filename, load, display, replace, search, wordfrequency, palindromes, emailsearch, decoder, save, reset):
+    """
+    General Program that allows you to view and make changes to a .txt file
+    """
     app = MyTextProcessor()
     path = os.path.join(os.path.dirname(__file__), filename)
     app.load(path)
@@ -36,14 +39,14 @@ def cli(filename, load, display, replace, search, wordfrequency, palindromes, em
         click.echo(f"replacing {input} with {output}")
         app.replace(input, output)
     elif wordfrequency:
-        wordcount = int(click.prompt("How many words do u want to see the frequency off"), type=int)
+        wordcount = int(click.prompt("How many words do u want to see the frequency off"))
         app.common_words(wordcount)
     elif palindromes:
         app.palindromes()
     elif emailsearch:
         app.find_email_addresses()
     elif decoder:
-        shift = int(click.prompt("What is the expected shift for the Ceasars Cypher"), type=int)
+        shift = int(click.prompt("What is the expected shift for the Ceasars Cypher"))
         click.echo('')
         app.find_cypher(shift)
     elif save:
@@ -222,9 +225,4 @@ class MyTextProcessor(TextProcessor):
 
 if __name__ == '__main__':
     cli()
-    
-
-
-if __name__ == '__main__':
-    cli()
-   
+ 
