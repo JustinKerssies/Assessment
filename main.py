@@ -8,7 +8,7 @@ from baseclass import TextProcessor
 @click.command()
 @click.argument('filename', required= True)
 @click.option('--load', help="load a file into the appended file, making it possible to make changes")
-@click.option('--display',help='displays a new file within the terminal', required=False)
+@click.option('--display', help='displays a new file within the terminal')
 @click.option('--search', help='searches for given word and returns begin and end location of said words')
 @click.option('--replace', help='replaces a given word with another words within the text')
 @click.option('--wordfrequency', help='returns a list of the most used words')
@@ -26,12 +26,14 @@ def cli(filename, load, display, replace, search, wordfrequency, palindromes, em
     if display:
         app.display()
     elif load:
+        click.echo(f'Load {path} into cache')
         app.reset()
     elif search:
         app.search()
     elif replace:
         input = str(click.prompt('What word do u want to replace'))
         output = str(click.prompt('what should the word be replaced with'))
+        click.echo(f"replacing {input} with {output}")
         app.replace(input, output)
     elif wordfrequency:
         wordcount = int(click.prompt("How many words do u want to see the frequency off"), type=int)
@@ -42,15 +44,21 @@ def cli(filename, load, display, replace, search, wordfrequency, palindromes, em
         app.find_email_addresses()
     elif decoder:
         shift = int(click.prompt("What is the expected shift for the Ceasars Cypher"), type=int)
+        click.echo('')
         app.find_cypher(shift)
     elif save:
-        app.save()
+        click.echo(f'Saving all changes to original file')
+        app.save(path)
     elif reset:
+        click.echo(f'Resetting work file back to original state')
         app.reset()
     pass
 
 
 class NoPalindromeException(Exception):
+    pass
+
+class NoEmailAddressesError(Exception):
     pass
 
 class MyTextProcessor(TextProcessor):
@@ -63,7 +71,6 @@ class MyTextProcessor(TextProcessor):
     def load(self, path: Path) -> None:
         self.file = open(path, 'r')
         self.append_path = os.path.join(os.path.dirname(__file__), self.append_path)
-        click.echo(f'Load {path} into cache')
 
     def display(self) -> None:
         click.echo(f'Display {self.append_path} into Terminal')
@@ -158,12 +165,18 @@ class MyTextProcessor(TextProcessor):
             click.echo(temp_dict)
 
     def find_email_addresses(self):
+        temp = []
         for lines in self.file.readlines():
             if '@' in lines:
                 words = lines.strip().split(' ')
                 for word in words:
                     if search(r'^[a-zA-Z]+\.?[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z.]*$', word):
-                        click.echo(word)
+                        temp.append(word)
+        if temp:
+            for email in temp:
+                click.echo(email)
+        else:
+            raise NoEmailAddressesError("No Email Addresses were found")
 
     def find_cypher(self, shift: int):
         for lines in self.file.readlines():
@@ -189,10 +202,11 @@ class MyTextProcessor(TextProcessor):
         temp_dict = []
         self.appendedfile = open(self.append_path, 'r')
         for lines in self.appendedfile.readlines():
+            print(lines)
             temp_dict.append(lines)
 
-        for lines in temp_dict:
-            with open(path, 'w') as f:
+        with open(path, 'w') as f:
+            for lines in temp_dict:
                 f.write(lines)
 
     def reset(self) -> None:
@@ -204,6 +218,11 @@ class MyTextProcessor(TextProcessor):
         for lines in temp_dict:
             self.appendedfile.write(lines)
 
+
+
+if __name__ == '__main__':
+    cli()
+    
 
 
 if __name__ == '__main__':
