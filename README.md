@@ -37,6 +37,8 @@ The way to currently use the program is to input:
   > mainly missing because of time constraints, however I have also not used Unittest a lot, so it would have probably taken quite a bit of time to create an acceptable test
 * Comments:
   > I should have written more comments during the programming. I personally believe the code is decently readable, but its possible that someone else would beg to differ
+* Frequent Git Changes:
+  > Started way too late with uploading it to GitHub. I have no excuse for this
 
 # Issues I ran into during the project
 * Time management
@@ -46,7 +48,7 @@ The way to currently use the program is to input:
 * Be more diligent with reading documentation
   > One of the Issues I ran into with Click is that I fundamentally misunderstood how the package worked, leading to behaviour that took way too long to fix. Instead I should have spend more time focussing on diligently reading through the base parts of the documentation
 * Read the Assignment more carefully
-  > I only recently saw the part in the DoD about frequent changes and logs in Git. Forgetting something like his should not happen in a work environment.
+  > I only recently saw the part in the DoD about frequent changes and logs in Git. Forgetting something like this should not happen in a work environment.
 
 
  
