@@ -22,12 +22,13 @@ This includes being able to display the given text, but also search and replace 
 
 # Usage
 The way to currently use the program is to input:
-* python "main/file/location.py" "target/file/location.txt" --load 1 (I havent figured out a way to remove the necessary argument)
+* python "main/file/location.py" "target/file/location.txt" --load 1
   Now you have loaded the file and created an temp file in which u can make changes
 * python "main/file/location.py" "target/file/location.txt" --[function] 1
   Replace --[function] with the above mentioned functions to do what u want the program to do
 * python "main/file/location.py" "target/file/location.txt" --save 1
-  This saves the temp file to the base file, saving it (only do this when u are sure its how u want it to be, use --display to see how it would look)
+  This saves the temp file to the base file, saving it
+  (only do this when u are sure its how u want it to be, use --display to see how it would look)
 
 # Missing components
 * Streamlining Click commands:
