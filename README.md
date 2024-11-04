@@ -27,7 +27,7 @@ The way to currently use the program is to input:
 * python "main/file/location.py" "target/file/location.txt" --[function] 1          
   Replace --[function] with the above mentioned functions to do what u want the program to do
 * python "main/file/location.py" "target/file/location.txt" --save 1            
-  This saves the temp file to the base file, saving it
+  This saves the temp file to the base file, saving it                        
   (only do this when u are sure its how u want it to be, use --display to see how it would look)
 
 # Missing components
