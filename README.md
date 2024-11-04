@@ -37,6 +37,18 @@ The way to currently use the program is to input:
   > mainly missing because of time constraints, however I have also not used Unittest a lot, so it would have probably taken quite a bit of time to create an acceptable test
 * Comments:
   > I should have written more comments during the programming. I personally believe the code is decently readable, but its possible that someone else would beg to differ
+
+# Issues I ran into during the project
+* Time management
+  > Instead of using 7+ hours understanding Click, I should have continued with the other parts of the project
+* Planning
+  > Instead of doing everything in order, I should have done the parts I was unfamiliar first, so I could have asked questions Wednesday/Thursday
+* Be more diligent with reading documentation
+  > One of the Issues I ran into with Click is that I fundamentally misunderstood how the package worked, leading to behaviour that took way too long to fix. Instead I should have spend more time focussing on diligently reading through the base parts of the documentation
+* Read the Assignment more carefully
+  > I only recently saw the part in the DoD about frequent changes and logs in Git. This should not happen in a work environment.
+
+
  
   
 
